@@ -1,1 +1,3 @@
 # Student-Management-System
+
+This Student Management System provides an intuitive interface for managing student records efficiently. Users can easily view, search, update, and delete student information stored in a CSV file. The search feature allows real-time filtering based on any student detail, displaying results sorted by **last name**, **first name**, and **student ID** for quick access. The system ensures that all updates and deletions are **automatically saved**, so changes persist even after closing the application. With a clean, responsive interface, this system simplifies student data management, providing accurate and organized information at your fingertips.
