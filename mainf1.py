@@ -6,7 +6,7 @@ import os
 import re
 
 CSV_FILE = "students.csv"
-# ------------------------ Functions ------------------------
+
 def save_to_csv(data):
     with open(CSV_FILE, "a", newline="") as file:
         writer = csv.writer(file)
@@ -192,11 +192,11 @@ def exit_student():
 def register_student_btn():
 
     def validate_student_id(student_id):
-        # Check if student ID follows the pattern YYYY-XXXX (only digits)
+        
         return bool(re.match(r"^\d{4}-\d{4}$", student_id))
 
     def validate_name(name):
-        # Allow only alphabetic characters and spaces
+        
         return bool(re.match(r"^[A-Za-z\s]+$", name))
 
     def update_college_details(event):
@@ -224,22 +224,18 @@ def register_student_btn():
         data = [student_id, last_name, first_name, gender_var.get(),
                 college_var.get(), college_code_var.get(), program_var.get(), program_code_var.get(), year_var.get()]
 
-        # Check for empty fields
         if "" in data:
             messagebox.showerror("Error", "All fields must be filled.")
             return
 
-        # Validate Student ID format
         if not validate_student_id(student_id):
             messagebox.showerror("Invalid Input", "Student ID must be in the format YYYY-XXXX (e.g., 2024-1234).")
             return
-
-        # Validate first and last names (only letters)
+            
         if not validate_name(last_name) or not validate_name(first_name):
             messagebox.showerror("Invalid Input", "First and Last Names should contain only letters.")
             return
 
-        # If all validations pass, save the student
         save_to_csv(data)
         student_tbl.insert("", "end", values=data)
         clear_fields()
@@ -330,10 +326,10 @@ def register_student_btn():
                     "Bachelor of Science in Business Administration(Business Economics)": "BSBA-BE",
                     "Bachelor of Science in Business Administration(Marketing Management)": "BSBA-MM",
                     "Bachelor of Science in Entrepreneurship": "BS-ENT",
-                    "Bachelor of Science in Hotel Management" : "BSHM"
+                    "Bachelor of Science in Hospitality Management" : "BSHM"
                 }
         },
-        "College of Health Services": {
+        "College of Health Sciences": {
             "code": "CHS",
                 "programs": {
                     "Bachelor of Science in Nursing": "BSN"
@@ -374,8 +370,6 @@ def register_student_btn():
     firstname_lbl.grid(row=2, column=0, padx=2, pady=2)
     firstname_ent = tk.Entry(addroot, bd=7, font=("times", 17),textvariable=firstname_var)
     firstname_ent.grid(row=2, column=1, padx=2, pady=2)
-
-    # ------------------------ Gender Selection ------------------------
     gender_lbl = tk.Label(addroot, text="Gender ", font=('times', 17, 'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     gender_lbl.grid(row=3, column=0, padx=2, pady=2)
     gender_var = tk.StringVar()
@@ -383,24 +377,16 @@ def register_student_btn():
     gender_ent['values'] = ("","Male", "Female")
     gender_ent.current(0)  
     gender_ent.grid(row=3, column=1, padx=2, pady=2)
-
-    # ------------------------ College Selection ------------------------
     college_lbl = tk.Label(addroot, text="College", font=('times', 17,'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     college_lbl.grid(row=4, column=0, padx=2, pady=2)
-    college_ent = ttk.Combobox(addroot, textvariable=college_var, font=("times", 17), state="readonly",
-                            values=list(college_data.keys()))
+    college_ent = ttk.Combobox(addroot, textvariable=college_var, font=("times", 17), state="readonly",values=list(college_data.keys()))
     college_ent.grid(row=4, column=1, padx=2, pady=2)
     college_ent.bind("<<ComboboxSelected>>", update_college_details)
-
-
-    # ------------------------ College Code (Auto-selected) ------------------------
     college_code_lbl = tk.Label(addroot, text="College Code ", font=('times', 17,'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     college_code_lbl.grid(row=5, column=0, padx=2, pady=2)
     college_code_var = tk.StringVar(value=college_data[college_var.get()]["code"])
     college_code_ent = tk.Entry(addroot, textvariable=college_code_var, font=('times', 19), state="readonly")
     college_code_ent.grid(row=5, column=1, padx=2, pady=2)
-
-    # ------------------------ Program (Dynamic) ------------------------
     program_lbl = tk.Label(addroot, text="Program ", font=('times', 17,'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     program_lbl.grid(row=6, column=0, padx=2, pady=2)
     program_var = tk.StringVar()
@@ -409,15 +395,11 @@ def register_student_btn():
     program_ent.current(0)
     program_ent.grid(row=6, column=1, padx=2, pady=2)
     program_ent.bind("<<ComboboxSelected>>", update_program_code)
-
-    # ------------------------ Program Code (Auto-selected) ------------------------
     program_code_lbl = tk.Label(addroot, text="Program Code ", font=('times', 19,'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     program_code_lbl.grid(row=7, column=0, padx=2, pady=2)
     program_code_var = tk.StringVar()
     program_code_ent = tk.Entry(addroot, textvariable=program_code_var, font=('times', 19), state="readonly")
     program_code_ent.grid(row=7, column=1, padx=2, pady=2)
-
-    # ------------------------ Year Level ------------------------
     year_lbl = tk.Label(addroot, text="Year level ", font=('times', 17,'bold'),relief=tk.GROOVE,borderwidth=3,width=11, bg="lightgrey")
     year_lbl.grid(row=8, column=0, padx=2, pady=2)
     year_ent = ttk.Combobox(addroot, font=("times", 17), state="readonly",textvariable=year_var)
@@ -432,6 +414,7 @@ def register_student_btn():
     clear_btn = tk.Button(addroot,bg="lightgrey",text="Clear",command=clear_fields,bd=7,font=("Arial",13),width=18)
     clear_btn.place(x=250,y=390)
     addroot.mainloop()
+    
 def update_student():
     selected_item = student_tbl.focus()  
 
@@ -546,10 +529,10 @@ def update_student():
                     "Bachelor of Science in Business Administration(Business Economics)": "BSBA-BE",
                     "Bachelor of Science in Business Administration(Marketing Management)": "BSBA-MM",
                     "Bachelor of Science in Entrepreneurship": "BS-ENT",
-                    "Bachelor of Science in Hotel Management" : "BSHM"
+                    "Bachelor of Science in Hospitality Management" : "BSHM"
                 }
         },
-        "College of Health Services": {
+        "College of Health Sciences": {
             "code": "CHS",
                 "programs": {
                     "Bachelor of Science in Nursing": "BSN"
@@ -557,7 +540,6 @@ def update_student():
         }
     }
 
-    # ---------------- Variables ----------------
     studentid_var = tk.StringVar(value=student_data[0])
     lastname_var = tk.StringVar(value=student_data[1])
     firstname_var = tk.StringVar(value=student_data[2])
@@ -568,7 +550,6 @@ def update_student():
     program_code_var = tk.StringVar(value=student_data[7])
     year_var = tk.StringVar(value=student_data[8])
 
-    # ---------------- Update Window ----------------
     upgroot = Toplevel()
     upgroot.grab_set()
     upgroot.geometry('470x470+220+200')
@@ -576,71 +557,41 @@ def update_student():
     upgroot.config(bg='lightgrey')
     upgroot.resizable(False, False)
 
-    # ---------------- Fields ----------------
-    tk.Label(upgroot, text="Student ID ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=0, column=0, padx=2, pady=2)
+    tk.Label(upgroot, text="Student ID ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=0, column=0, padx=2, pady=2)
     tk.Entry(upgroot, bd=7, font=("times", 17), textvariable=studentid_var).grid(row=0, column=1, padx=2, pady=2)
-
-    tk.Label(upgroot, text="Last Name ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=1, column=0, padx=2, pady=2)
+    tk.Label(upgroot, text="Last Name ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=1, column=0, padx=2, pady=2)
     tk.Entry(upgroot, bd=7, font=("times", 17), textvariable=lastname_var).grid(row=1, column=1, padx=2, pady=2)
-
-    tk.Label(upgroot, text="First Name ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=2, column=0, padx=2, pady=2)
+    tk.Label(upgroot, text="First Name ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=2, column=0, padx=2, pady=2)
     tk.Entry(upgroot, bd=7, font=("times", 17), textvariable=firstname_var).grid(row=2, column=1, padx=2, pady=2)
-
-    # Gender
-    tk.Label(upgroot, text="Gender ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=3, column=0, padx=2, pady=2)
-    gender_ent = ttk.Combobox(upgroot, textvariable=gender_var, font=("times", 17), state="readonly",
-                              values=["Male", "Female"])
+    tk.Label(upgroot, text="Gender ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=3, column=0, padx=2, pady=2)
+    gender_ent = ttk.Combobox(upgroot, textvariable=gender_var, font=("times", 17), state="readonly",values=["Male", "Female"])
     gender_ent.grid(row=3, column=1, padx=2, pady=2)
-
-    # College
-    tk.Label(upgroot, text="College", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=4, column=0, padx=2, pady=2)
-    college_ent = ttk.Combobox(upgroot, textvariable=college_var, font=("times", 17), state="readonly",
-                               values=list(college_data.keys()))
+    tk.Label(upgroot, text="College", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=4, column=0, padx=2, pady=2)
+    college_ent = ttk.Combobox(upgroot, textvariable=college_var, font=("times", 17), state="readonly",values=list(college_data.keys()))
     college_ent.grid(row=4, column=1, padx=2, pady=2)
     college_ent.bind("<<ComboboxSelected>>", update_college_details)
-
-    # College Code
-    tk.Label(upgroot, text="College Code ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=5, column=0, padx=2, pady=2)
+    tk.Label(upgroot, text="College Code ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=5, column=0, padx=2, pady=2)
     tk.Entry(upgroot, textvariable=college_code_var, font=('times', 19), state="readonly").grid(row=5, column=1, padx=2, pady=2)
-
-    # Program
-    tk.Label(upgroot, text="Program ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=6, column=0, padx=2, pady=2)
-    program_ent = ttk.Combobox(upgroot, textvariable=program_var, font=("times", 17), state="readonly",
-                               values=list(college_data[college_var.get()]["programs"].keys()))
+    tk.Label(upgroot, text="Program ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=6, column=0, padx=2, pady=2)
+    program_ent = ttk.Combobox(upgroot, textvariable=program_var, font=("times", 17), state="readonly",values=list(college_data[college_var.get()]["programs"].keys()))
     program_ent.grid(row=6, column=1, padx=2, pady=2)
     program_ent.bind("<<ComboboxSelected>>", update_program_code)
-
-    # Program Code
-    tk.Label(upgroot, text="Program Code ", font=('times', 19, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=7, column=0, padx=2, pady=2)
+    tk.Label(upgroot, text="Program Code ", font=('times', 19, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=7, column=0, padx=2, pady=2)
     tk.Entry(upgroot, textvariable=program_code_var, font=('times', 19), state="readonly").grid(row=7, column=1, padx=2, pady=2)
-
-    # Year Level
-    tk.Label(upgroot, text="Year level ", font=('times', 17, 'bold'), relief=tk.GROOVE,
-             borderwidth=3, width=11, bg="lightgrey").grid(row=8, column=0, padx=2, pady=2)
-    year_ent = ttk.Combobox(upgroot, font=("times", 17), state="readonly", textvariable=year_var,
-                            values=["1", "2", "3", "4"])
+    tk.Label(upgroot, text="Year level ", font=('times', 17, 'bold'), relief=tk.GROOVE,borderwidth=3, width=11, bg="lightgrey").grid(row=8, column=0, padx=2, pady=2)
+    year_ent = ttk.Combobox(upgroot, font=("times", 17), state="readonly", textvariable=year_var,values=["1", "2", "3", "4"])
     year_ent.grid(row=8, column=1, padx=2, pady=2)
-
-    # ---------------- Buttons ----------------
-    tk.Button(upgroot, bg="lightgrey", text="Update", command=update_student_tbl, bd=7,
-              font=("Arial", 13), width=18).place(x=50, y=390)
-    tk.Button(upgroot, bg="lightgrey", text="Cancel", command=upgroot.destroy, bd=7,
-              font=("Arial", 13), width=18).place(x=250, y=390)
+    tk.Button(upgroot, bg="lightgrey", text="Update", command=update_student_tbl, bd=7,font=("Arial", 13), width=18).place(x=50, y=390)
+    tk.Button(upgroot, bg="lightgrey", text="Cancel", command=upgroot.destroy, bd=7,font=("Arial", 13), width=18).place(x=250, y=390)
 
     update_college_details(None)
+    
     program_ent.set(student_data[6])  
+    
     update_program_code(None)
+    
     upgroot.mainloop()
 
-# ------------------------ Main Window ------------------------
 win = tk.Tk()
 win.geometry("1350x700+0+0")
 win.title("Student Management System")
@@ -679,14 +630,11 @@ refreshicon=tk.PhotoImage(file="refreshicon.png")
 show_btn = tk.Button(win,text = "  Refresh  ",compound=tk.RIGHT,image=refreshicon,width=230,height=40,font=('Arial',17,'bold'),bd=3,bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=show_all)
 show_btn.place(x=300,y=110)
 
-# ------------------------ Frames ------------------------
 detail_frame = tk.LabelFrame(win,bd=6, relief=tk.GROOVE, bg="#F3EBDF")
 detail_frame.place(x=15, y=180, width=570, height=500)
 
 data_frame = tk.Frame(win, bd=12, bg="lightgrey", relief=tk.GROOVE)
 data_frame.place(x=600, y=135, width=735, height=505)
-
-#entry for student
 
 profileimg = tk.PhotoImage(file="profile.png")  
 profile = tk.Label(detail_frame, image=profileimg,width=31,height=32)
@@ -697,8 +645,6 @@ register_btn.place(x=160,y=250,width=250,height=40)
 
 exit_btn = tk.Button(detail_frame,text = "Exit",width=15,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=exit_student)
 exit_btn.place(x=160,y=320,width=250,height=40)
-
-#data base frame
 
 main_frame = tk.Frame(data_frame,bg="lightgrey",bd=11,relief=tk.GROOVE)
 main_frame.pack(fill=tk.BOTH,expand=True)
