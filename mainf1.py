@@ -640,7 +640,7 @@ profileimg = tk.PhotoImage(file="profile.png")
 profile = tk.Label(detail_frame, image=profileimg,width=31,height=32)
 profile.place(x=180,y=40,width=200,height=170)
 
-register_btn = tk.Button(detail_frame,text = "Register Student",width=40,font=('Arial',18,'bold'),fg="#F3EBDF"v,bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=register_student_btn)
+register_btn = tk.Button(detail_frame,text = "Register Student",width=40,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=register_student_btn)
 register_btn.place(x=160,y=250,width=250,height=40)
 
 exit_btn = tk.Button(detail_frame,text = "Exit",width=15,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=exit_student)
