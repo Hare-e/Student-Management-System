@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import font, messagebox, ttk, Toplevel
 from tkinter import filedialog
@@ -5,24 +6,27 @@ import csv
 import os
 import re
 
-CSV_FILE = "students.csv"
+CSV_STUDENTS = "students.csv"
+CSV_COLLEGES = "colleges.csv"
+CSV_PROGRAMS = "programs.csv"
 
 def save_to_csv(data):
-    with open(CSV_FILE, "a", newline="") as file:
+    with open(CSV_STUDENTS, "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(data)
 
 def load_data():
-    if not os.path.exists(CSV_FILE):
-        with open(CSV_FILE, "w", newline="") as file:
+    if not os.path.exists(CSV_STUDENTS):
+        with open(CSV_STUDENTS, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["Student ID", "Last Name", "First Name", "Gender", "College", "College Code", "Program", "Program Code", "Year"])
     else:
-        with open(CSV_FILE, "r") as file:
+        with open(CSV_STUDENTS, "r") as file:
             reader = csv.reader(file)
             next(reader, None)  
             for row in reader:
                 student_tbl.insert("", "end", values=row)
+
 def update_csv_from_table():
     try:
         with open(CSV_FILE, "r", newline="") as file:
@@ -74,19 +78,19 @@ def delete_student():
         return
 
     try:
-        with open(CSV_FILE, "r", newline="") as file:
+        with open(CSV_STUDENTS, "r", newline="") as file:
             reader = csv.DictReader(file)
             all_students = list(reader)
 
         students_dict = {student["Student ID"]: student for student in all_students}
 
         for item in selected_item:
-            student_id = student_tbl.item(item)['values'][0]  
+            student_id = student_tbl.item(item)['values'][0]
             if student_id in students_dict:
                 del students_dict[student_id]
-            student_tbl.delete(item) 
-            
-        with open(CSV_FILE, "w", newline="") as file:
+            student_tbl.delete(item)
+
+        with open(CSV_STUDENTS, "w", newline="") as file:
             fieldnames = ["Student ID", "Last Name", "First Name", "Gender", "College",
                           "College Code", "Program", "Program Code", "Year"]
             writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -95,21 +99,18 @@ def delete_student():
                 writer.writerow(student)
 
         messagebox.showinfo("Delete Success", "Selected student record(s) deleted successfully.")
-        load_data()  
+        load_data()
 
     except FileNotFoundError:
-        messagebox.showerror("File Error", f"The '{CSV_FILE}' file was not found.")
-
-
+        messagebox.showerror("File Error", f"The '{CSV_STUDENTS}' file was not found.")
 
 def update_csv_from_table():
-
     try:
-        with open(CSV_FILE, "r", newline="") as file:
+        with open(CSV_STUDENTS, "r", newline="") as file:
             reader = csv.DictReader(file)
             all_students = list(reader)
     except FileNotFoundError:
-        messagebox.showerror("File Error", f"The '{CSV_FILE}' file was not found.")
+        messagebox.showerror("File Error", f"The '{CSV_STUDENTS}' file was not found.")
         return
 
     students_dict = {student["Student ID"]: student for student in all_students}
@@ -128,8 +129,8 @@ def update_csv_from_table():
             "Year": values[8]
         }
         students_dict[updated_student["Student ID"]] = updated_student
-        
-    with open(CSV_FILE, "w", newline="") as file:
+
+    with open(CSV_STUDENTS, "w", newline="") as file:
         fieldnames = ["Student ID", "Last Name", "First Name", "Gender", "College",
                       "College Code", "Program", "Program Code", "Year"]
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -142,42 +143,59 @@ def update_csv_from_table():
     load_data()
 
 
-def search_students(event=None):
-    search_term = search_entry.get().strip().lower()
-
-    if not search_term:
-        for item in student_tbl.get_children():
-            student_tbl.delete(item)
-        load_data()  
-        return
-
-    for item in student_tbl.get_children():
-        student_tbl.delete(item)
-
-    matched_students = []
-
-    try:
-        with open(CSV_FILE, 'r', newline='') as file:
+def load_colleges():
+    colleges = ["All Colleges"]
+    if os.path.exists(CSV_COLLEGES):
+        with open(CSV_COLLEGES, newline="") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                if any(search_term in str(row.get(field, '')).lower() for field in row):
-                    matched_students.append(row)
-    except FileNotFoundError:
-        messagebox.showerror("File Error", f"The '{CSV_FILE}' file was not found.")
-        return
+                colleges.append(row["College Name"])
+    return colleges
 
-    matched_students.sort(key=lambda x: (x['Last Name'].lower(), x['First Name'].lower(), x['Student ID']))
+def load_programs(college):
+    programs = ["All Programs"]
+    if os.path.exists(CSV_PROGRAMS):
+        with open(CSV_PROGRAMS, newline="") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                if college == "All Colleges" or row["College Name"] == college:
+                    programs.append(row["Program Name"])
+    return programs
 
-    for student in matched_students:
-        student_tbl.insert('', 'end', values=(
-            student.get('Student ID', ''), student.get('Last Name', ''), student.get('First Name', ''),
-            student.get('Gender', ''), student.get('College', ''), student.get('College Code', ''),
-            student.get('Program', ''), student.get('Program Code', ''), student.get('Year', '')
-        ))
+def load_filtered_students(college_filter, program_filter, sort_option):
+    students = []
+    if os.path.exists(CSV_STUDENTS):
+        with open(CSV_STUDENTS, newline="") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                if (college_filter == "All Colleges" or row["College"] == college_filter) and                    (program_filter == "All Programs" or row["Program"] == program_filter):
+                    students.append(row)
 
-    if not matched_students:
-        messagebox.showinfo("Search Result", "No matching student records found.")
+    def sort_key(student):
+        gender_priority = 0 if student["Gender"].lower() == "female" else 1
+        year_priority_map = {"4": 1, "3": 2, "2": 3, "1": 4}
+        year_priority = year_priority_map.get(student["Year"], 5)
+        lname = student["Last Name"].lower()
+        fname = student["First Name"].lower()
 
+        if sort_option == "First Name A-Z":
+            return (fname,)
+        elif sort_option == "First Name Z-A":
+            return (fname,)
+        elif sort_option == "Last Name A-Z":
+            return (lname,)
+        elif sort_option == "Last Name Z-A":
+            return(lname,)
+        elif sort_option == "Gender":
+            return (gender_priority, lname, fname)
+        elif sort_option == "Year":
+            return (year_priority, lname, fname)
+        else: 
+            return (lname,)
+
+    reverse = sort_option in ["First Name Z-A", "Last Name Z-A"]
+    students.sort(key=sort_key, reverse=reverse)
+    return students
 def show_all():
     for row in student_tbl.get_children():
         student_tbl.delete(row)
@@ -235,6 +253,15 @@ def register_student_btn():
         if not validate_name(last_name) or not validate_name(first_name):
             messagebox.showerror("Invalid Input", "First and Last Names should contain only letters.")
             return
+        
+        if os.path.exists(CSV_STUDENTS):
+            with open(CSV_STUDENTS, "r", newline="") as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    if row["Student ID"] == student_id:
+                        messagebox.showerror("Duplicate ID", f"A student with ID {student_id} already exists.")
+                        return
+
 
         save_to_csv(data)
         student_tbl.insert("", "end", values=data)
@@ -429,18 +456,19 @@ def update_student():
         college_code_var.set(college_data[selected_college]["code"])
         programs = list(college_data[selected_college]["programs"].keys())
         program_ent["values"] = programs
-        if student_data[6] in programs:
-            program_ent.set(student_data[6])  
-            update_program_code(None)
+
+        if program_var.get() in programs:
+            program_ent.set(program_var.get())
+        else:
+            program_ent.current(0)
+
+        update_program_code(None)
 
     def update_program_code(event):
         selected_college = college_var.get()
         selected_program = program_var.get()
-        if selected_program:
-            program_code = college_data[selected_college]["programs"].get(selected_program, "")
-            program_code_var.set(program_code)
-        else:
-            program_code_var.set("")
+        program_code = college_data[selected_college]["programs"].get(selected_program, "")
+        program_code_var.set(program_code)
 
     def update_student_tbl():
         data = [studentid_var.get(), lastname_var.get(), firstname_var.get(), gender_var.get(),
@@ -448,10 +476,29 @@ def update_student():
         if "" in data:
             messagebox.showerror("Error", "All fields must be filled.")
             return
-        student_tbl.item(selected_item, values=data)  
+        if not re.match(r"^\d{4}-\d{4}$", studentid_var.get()):
+            messagebox.showerror("Invalid Input", "Student ID must be in the format YYYY-XXXX.")
+            return
+        if not re.match(r"^[A-Za-z\s]+$", lastname_var.get()) or not re.match(r"^[A-Za-z\s]+$", firstname_var.get()):
+            messagebox.showerror("Invalid Input", "Names must contain only letters.")
+            return
+        current_student_id = student_data[0]
+        new_student_id = studentid_var.get()
+
+        if os.path.exists(CSV_STUDENTS):
+            with open(CSV_STUDENTS, "r", newline="") as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    if row["Student ID"] == new_student_id and row["Student ID"] != current_student_id:
+                        messagebox.showerror("Duplicate ID", f"A student with ID {new_student_id} already exists.")
+                        return
+
+
+        student_tbl.item(selected_item, values=data)
         update_csv_from_table()
         messagebox.showinfo("Updated", "Student details updated successfully!")
         upgroot.destroy()
+        
 
     college_data = {
         "College of Engineering": {
@@ -591,94 +638,119 @@ def update_student():
     update_program_code(None)
     
     upgroot.mainloop()
-
+    
 win = tk.Tk()
 win.geometry("1350x700+0+0")
 win.title("Student Management System")
 win.configure(bg="#F3EBDF")
 
-img = tk.PhotoImage(file="logoiit.png") 
-lab = tk.Label(win, image=img)
-lab.place(x=55,y=6,width=200,height=170)
+filter_frame = tk.LabelFrame(win, text="", font=("Arial", 18, "bold"), bg="#F3EBDF", bd=0)
+filter_frame.place(x=250, y=70)
 
-title_label = tk.Label(
-    win,
-    text="Student Management System",
-    font=("Arial", 20, "bold"),
-    bg="#F3EBDF",
-)
-title_label.place(x=270, y=70)
+college_filter_var = tk.StringVar()
+program_filter_var = tk.StringVar()
+sort_by_var = tk.StringVar()
 
-search_by = tk.StringVar()
-search_frame = tk.Frame(win, bd=7, relief=tk.SUNKEN)
-search_frame.place(x=750, y=70)
-search_entry = tk.Entry(search_frame, bd=0,relief=tk.FLAT, font=("Arial", 20), width=25)
+college_dropdown = ttk.Combobox(filter_frame, textvariable=college_filter_var, font=("Arial", 12), state="readonly", width=30)
+college_dropdown['values'] = load_colleges()
+college_dropdown.current(0)
+college_dropdown.grid(row=0, column=0, padx=5, pady=2)
+
+program_dropdown = ttk.Combobox(filter_frame, textvariable=program_filter_var, font=("Arial", 12), state="readonly", width=30)
+program_dropdown['values'] = load_programs("All Colleges")
+program_dropdown.current(0)
+program_dropdown.grid(row=0, column=1, padx=5, pady=2)
+
+def update_program_dropdown(event):
+    selected_college = college_filter_var.get()
+    program_dropdown['values'] = load_programs(selected_college)
+    program_dropdown.current(0)
+
+college_dropdown.bind("<<ComboboxSelected>>", update_program_dropdown)
+
+sort_dropdown = ttk.Combobox(filter_frame, textvariable=sort_by_var, font=("Arial", 12), state="readonly", width=30)
+sort_dropdown['values'] = ["First Name A-Z", "First Name Z-A","Last Name A-Z","Last Name Z-A", "Gender", "Year"]
+sort_dropdown.current(0)
+sort_dropdown.grid(row=0, column=2, padx=5, pady=2)
+
+search_var = tk.StringVar()
+search_frame = tk.LabelFrame(win, bd=3, relief=tk.SUNKEN, bg="#F3EBDF")
+search_frame.place(x=665, y=10)
+
+search_entry = tk.Entry(search_frame, textvariable=search_var, bd=0, relief=tk.FLAT, font=("Arial", 20), width=40)
 search_entry.pack(side=tk.LEFT, fill=tk.BOTH, padx=(0, 5))
 search_entry.bind("<KeyRelease>", lambda event: search_students())
-searchicon = tk.PhotoImage(file="searchicon.png")
-search_label = tk.Label(search_frame, image=searchicon, bg="lightgrey")
-search_label.pack(side=tk.RIGHT)
 
+try:
+    searchicon = tk.PhotoImage(file="searchicon.png")
+    search_label = tk.Label(search_frame, image=searchicon, bg="lightgrey")
+    search_label.pack(side=tk.RIGHT)
+except Exception:
+    search_label = tk.Label(search_frame, text="🔍", font=("Arial", 18), bg="lightgrey")
+    search_label.pack(side=tk.RIGHT)
 
-delete_btn = tk.Button(win,text = "Delete",width=12,font=('Arial',15,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=delete_student)
-delete_btn.place(x=730,y=650)
-
-update_btn = tk.Button(win,text = "Update",width=12,font=('Arial',15,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=update_student)
-update_btn.place(x=1050,y=650)
+register_btn = tk.Button(text = "Register Student",width=40,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=register_student_btn)
+register_btn.place(x=30,y=10,width=250,height=40)
 
 refreshicon=tk.PhotoImage(file="refreshicon.png")
-show_btn = tk.Button(win,text = "  Refresh  ",compound=tk.RIGHT,image=refreshicon,width=230,height=40,font=('Arial',17,'bold'),bd=3,bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=show_all)
-show_btn.place(x=300,y=110)
+show_btn = tk.Button(win,text = "  Refresh  ",compound=tk.RIGHT,image=refreshicon,width=230,height=40,font=('Arial',18,'bold'),fg="#F3EBDF",bd=3,bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=show_all)
+show_btn.place(x=350,y=10,width=250,height=40)
 
-detail_frame = tk.LabelFrame(win,bd=6, relief=tk.GROOVE, bg="#F3EBDF")
-detail_frame.place(x=15, y=180, width=570, height=500)
 
-data_frame = tk.Frame(win, bd=12, bg="lightgrey", relief=tk.GROOVE)
-data_frame.place(x=600, y=135, width=735, height=505)
+update_btn = tk.Button(win,text = "Update",width=12,font=('Arial',15,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=update_student)
+update_btn.place(x=175,y=650)
 
-profileimg = tk.PhotoImage(file="profile.png")  
-profile = tk.Label(detail_frame, image=profileimg,width=31,height=32)
-profile.place(x=180,y=40,width=200,height=170)
+delete_btn = tk.Button(win,text = "Delete",width=12,font=('Arial',15,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=delete_student)
+delete_btn.place(x=575,y=650)
 
-register_btn = tk.Button(detail_frame,text = "Register Student",width=40,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=register_student_btn)
-register_btn.place(x=160,y=250,width=250,height=40)
+exit_btn = tk.Button(text = "Exit",width=15,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=exit_student)
+exit_btn.place(x=1025,y=650,width=150,height=40)
 
-exit_btn = tk.Button(detail_frame,text = "Exit",width=15,font=('Arial',18,'bold'),fg="#F3EBDF",bg='#6A1314',activebackground='blue',relief=tk.GROOVE,activeforeground='white',command=exit_student)
-exit_btn.place(x=160,y=320,width=250,height=40)
+tree_frame = tk.Frame(win, bd=3, relief=tk.GROOVE)
+tree_frame.place(x=50, y=150, width=1250, height=470)
 
-main_frame = tk.Frame(data_frame,bg="lightgrey",bd=11,relief=tk.GROOVE)
-main_frame.pack(fill=tk.BOTH,expand=True)
+columns = ("Student ID", "Last Name", "First Name", "Gender", "College", "College Code", "Program", "Program Code", "Year")
+student_tbl = ttk.Treeview(tree_frame, columns=columns, show='headings')
 
-y_scroll = tk.Scrollbar(main_frame,orient=tk.VERTICAL)
-x_scroll = tk.Scrollbar(main_frame,orient=tk.HORIZONTAL)
+for col in columns:
+    student_tbl.heading(col, text=col)
+    student_tbl.column(col, width=120)
 
-student_tbl = ttk.Treeview(main_frame,columns=("Student ID","Last Name", "First Name","Gender","College","Program Code","Program"),yscrollcommand=y_scroll.set,xscrollcommand=x_scroll.set)
+student_tbl.pack(fill=tk.BOTH, expand=True)
 
-y_scroll.config(command=student_tbl.yview)
-x_scroll.config(command=student_tbl.xview)
+def refresh_students():
+    for item in student_tbl.get_children():
+        student_tbl.delete(item)
 
-y_scroll.pack(side=tk.RIGHT,fill=tk.Y)
-x_scroll.pack(side=tk.BOTTOM,fill=tk.X)
+    college = college_filter_var.get()
+    program = program_filter_var.get()
+    sort_option = sort_by_var.get()
 
-student_tbl.heading("Student ID",text="Student ID")
-student_tbl.heading("Last Name",text="Last Name")
-student_tbl.heading("First Name",text="First Name")
-student_tbl.heading("Gender",text="Gender")
-student_tbl.heading("College",text="College")
-student_tbl.heading("Program Code",text="Program Code")
-student_tbl.heading("Program",text="Program")
+    students = load_filtered_students(college, program, sort_option)
+    for student in students:
+        student_tbl.insert('', 'end', values=[
+            student['Student ID'], student['Last Name'], student['First Name'], student['Gender'],
+            student['College'], student['College Code'], student['Program'], student['Program Code'], student['Year']
+        ])
 
-student_tbl['show'] = 'headings'
+def search_students(event=None):
+    query = search_var.get().strip().lower()
+    college = college_filter_var.get()
+    program = program_filter_var.get()
+    sort_option = sort_by_var.get()
 
-student_tbl.column("Student ID",width=75)
-student_tbl.column("Last Name",width=100)
-student_tbl.column("First Name",width=100)
-student_tbl.column("Gender",width=50)
-student_tbl.column("College",width=230)
-student_tbl.column("Program Code",width=50)
-student_tbl.column("Program",width=250)
-student_tbl.pack(fill=tk.BOTH,expand=True)
+    students = load_filtered_students(college, program, sort_option)
 
-#data base frame end
+    student_tbl.delete(*student_tbl.get_children())
 
+    for student in students:
+        if not query or any(query in str(value).lower() for value in student.values()):
+            student_tbl.insert('', 'end', values=[
+                student['Student ID'], student['Last Name'], student['First Name'], student['Gender'],
+                student['College'], student['College Code'], student['Program'], student['Program Code'], student['Year']
+            ])
+
+apply_filter_btn = tk.Button(filter_frame, text="Apply Filters", command=refresh_students, font=("Arial", 11), bg="#6A1314", fg="white")
+apply_filter_btn.grid(row=1, column=0, columnspan=3, pady=5)
+refresh_students()
 win.mainloop()
