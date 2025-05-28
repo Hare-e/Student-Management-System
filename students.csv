@@ -1,103 +1,99 @@
 Student ID,Last Name,First Name,Gender,College,College Code,Program,Program Code,Year
-2024-1060,Adams,Alice,Male,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,3
-2024-2822,Adams,Alice,Male,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,3
-2024-1142,Adams,Charlie,Male,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,2
-2024-1113,Adams,Max,Female,College of Health Services,CHS,Bachelor of Science in Nursing,BSN,1
-2024-1139,Adams,Oscar,Female,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,3
-2024-1150,Adams,Paula,Female,College of Arts and Social Sciences,CAS,Bachelor of Arts in Psychology,BA-PSY,1
-2024-1128,Baker,Bob,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in English Language Studies,BA-ELS,1
-2024-1124,Baker,Hannah,Male,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,2
-2024-1098,Baker,Isaac,Male,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,1
-2024-1084,Baker,Luna,Female,College of Education,CED,Bachelor of Physical Education,BPEd,3
-2024-1085,Baker,Max,Male,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,1
-2024-1054,Baker,Paula,Female,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,1
-2024-1052,Baker,Samuel,Female,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,2
-2024-1145,Clark,Daisy,Male,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,1
-2024-1105,Clark,Max,Female,College of Education,CED,Bachelor of Physical Education,BPEd,4
-2024-1097,Clark,Oscar,Male,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,3
-2024-1087,Clark,Walter,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Psychology,BA-PSY,3
-2024-1101,Clark,Xena,Female,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,3
-2024-1112,Davis,Alice,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,3
-2024-1094,Davis,Fiona,Male,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,3
-2024-1088,Davis,Julia,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Political Science,BA-POLSCI,1
-2024-1100,Davis,Walter,Female,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,2
-2024-1080,Davis,Yvonne,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,3
-2024-1146,Edwards,Charlie,Female,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,2
-2024-1114,Edwards,Fiona,Female,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,4
-2024-1065,Edwards,Hannah,Female,College of Arts and Social Sciences,CAS,Bachelor of Arts in English Language Studies,BA-ELS,1
-2024-1111,Edwards,Luna,Male,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,2
-2024-1074,Edwards,Max,Male,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,2
-2024-1121,Edwards,Rachel,Female,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,3
-2024-1051,Fisher,Charlie,Male,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,2
-2024-1075,Fisher,Daisy,Female,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,4
-2024-1108,Fisher,Fiona,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Psychology,BA-PSY,4
-2024-1056,Fisher,Samuel,Male,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,1
-2024-1059,Fisher,Walter,Female,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,1
-2024-1064,Fisher,Xena,Female,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,4
-2024-1149,Garcia,Max,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in English Language Studies,BA-ELS,4
-2024-1135,Garcia,Nina,Female,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,2
-2024-1136,Johnson,Ethan,Female,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,1
-2024-1071,Johnson,Ethan,Female,College of Health Services,CHS,Bachelor of Science in Nursing,BSN,3
-2024-1143,Johnson,Victoria,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,1
-2024-1076,King,Daisy,Female,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,4
-2024-1090,King,Hannah,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,4
-2024-1110,King,Ulysses,Male,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,3
-2024-1125,Lewis,Alice,Female,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,2
-2024-1117,Lewis,George,Male,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,3
-2024-1131,Martinez,Bob,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,3
-2024-1082,Martinez,Hannah,Female,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,4
-2024-1069,Martinez,Isaac,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,2
-2024-1137,Martinez,Julia,Male,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,3
-2024-1119,Martinez,Paula,Male,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,1
-2024-1086,Martinez,Walter,Female,College of Arts and Social Sciences,CAS,Bachelor of Arts in English Language Studies,BA-ELS,2
-2024-1129,Mitchell,Oscar,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Psychology,BA-PSY,1
-2024-1072,Mitchell,Samuel,Female,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,1
-2024-1093,Mitchell,Walter,Female,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,1
-2024-1055,Nelson,Alice,Female,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,3
-2024-1115,Nelson,Hannah,Male,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,4
-2024-1147,Nelson,Samuel,Male,College of Education,CED,Bachelor of Physical Education,BPEd,3
-2024-1107,Nelson,Walter,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in English Language Studies,BA-ELS,3
-2024-1053,Nelson,Yvonne,Female,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,4
-2024-1123,Owens,Hannah,Female,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,1
-2024-1122,Parker,Daisy,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,3
-2024-1066,Parker,Nina,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Psychology,BA-PSY,4
-2024-1063,Parker,Nina,Male,College of Education,CED,Bachelor of Physical Education,BPEd,4
-2024-1144,Parker,Paula,Female,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,3
-2024-1104,Parker,Victoria,Male,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,3
-2024-1127,Quincy,Bob,Female,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,3
-2024-1092,Quincy,Bob,Female,College of Health Services,CHS,Bachelor of Science in Nursing,BSN,1
-2024-1079,Quincy,Charlie,Female,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,1
-2024-1106,Quincy,Rachel,Female,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,4
-2024-1057,Quincy,Samuel,Female,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,3
-2024-1096,Reed,Charlie,Female,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,2
-2024-1103,Reed,Paula,Female,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,4
-2024-1140,Reed,Ulysses,Female,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,2
-2024-1070,Reed,Walter,Male,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,4
-2024-2819,Saladaga,Carlo James,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,2
-2024-1130,Smith,Nina,Female,College of Arts and Social Sciences,CAS,Bachelor of Arts in Political Science,BA-POLSCI,4
-2024-1077,Smith,Samuel,Male,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,1
-2024-1091,Smith,Xena,Male,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,2
-2024-1133,Turner,Charlie,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,2
-2024-1062,Turner,Daisy,Female,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,1
-2024-1134,Turner,Kevin,Male,College of Health Services,CHS,Bachelor of Science in Nursing,BSN,1
-2024-1138,Turner,Nina,Female,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,4
-2024-1148,Turner,Nina,Female,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,2
-2024-1061,Turner,Paula,Female,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,4
-2024-1081,Turner,Rachel,Female,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,4
-2024-1058,Turner,Walter,Female,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,2
-2024-1120,Turner,Zach,Female,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,3
-2024-1126,Underwood,Charlie,Female,College of Education,CED,Bachelor of Physical Education,BPEd,2
-2024-1118,Underwood,Charlie,Female,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,2
-2024-1132,Underwood,Nina,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,3
-2024-1102,Underwood,Tina,Male,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,3
-2024-1099,Vargas,Yvonne,Male,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,2
-2024-1141,White,Kevin,Female,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,4
-2024-1073,White,Kevin,Male,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,2
-2024-1078,White,Xena,Female,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,4
-2024-1068,Xavier,Oscar,Female,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,2
-2024-1116,Young,Charlie,Female,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,1
-2024-1109,Young,Max,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Political Science,BA-POLSCI,4
-2024-1089,Young,Oscar,Male,College of Economics Business & Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,1
-2024-1067,Young,Xena,Male,College of Arts and Social Sciences,CAS,Bachelor of Arts in Political Science,BA-POLSCI,2
-2024-1083,Young,Yvonne,Male,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,3
-2024-1095,Zimmerman,Isaac,Female,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,3
+2024-1001,Lee,Sky,Male,College of Engineering,COE,Diploma in Chemical Engineering Technology,DCET,1
+2024-1002,Garcia,Emery,Female,College of Engineering,COE,Diploma in Chemical Engineering Technology,DCET,2
+2024-1003,Davis,Alex,Male,College of Engineering,COE,Bachelor of Science in Ceramic Engineering,BSCerE,3
+2024-1004,Evans,Dana,Female,College of Engineering,COE,Bachelor of Science in Ceramic Engineering,BSCerE,4
+2024-1005,Lee,Morgan,Male,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,1
+2024-1006,Evans,Casey,Female,College of Engineering,COE,Bachelor of Science in Civil Engineering,BSCE,2
+2024-1007,Evans,Alex,Male,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,3
+2024-1008,Evans,Dana,Female,College of Engineering,COE,Bachelor of Science in Electrical Engineering,BSEE,4
+2024-1009,Baker,Dana,Male,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,1
+2024-1010,Adams,Alex,Female,College of Engineering,COE,Bachelor of Science in Mechanical Engineering,BSME,2
+2024-1011,Adams,Emery,Male,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,3
+2024-1012,Evans,Jordan,Female,College of Engineering,COE,Bachelor of Science in Chemical Engineering,BSChE,4
+2024-1013,Adams,Jordan,Male,College of Engineering,COE,Bachelor of Science in Metallurgical Engineering,BSMetE,1
+2024-1014,Jones,Reese,Female,College of Engineering,COE,Bachelor of Science in Metallurgical Engineering,BSMetE,2
+2024-1015,Evans,Taylor,Male,College of Engineering,COE,Bachelor of Science in Computer Engineering,BSCpE,3
+2024-1016,Davis,Charlie,Female,College of Engineering,COE,Bachelor of Science in Computer Engineering,BSCpE,4
+2024-1017,Carter,Emery,Male,College of Engineering,COE,Bachelor of Science in Mining Engineering,BSMinE,1
+2024-1018,Garcia,Reese,Female,College of Engineering,COE,Bachelor of Science in Mining Engineering,BSMinE,2
+2024-1019,Baker,Morgan,Male,College of Engineering,COE,Bachelor of Science in Electronics and Communications Engineering,BSECE,3
+2024-1020,Carter,Morgan,Female,College of Engineering,COE,Bachelor of Science in Electronics and Communications Engineering,BSECE,4
+2024-1021,Carter,Reese,Male,College of Engineering,COE,Bachelor of Science in Environmental Engineering,BSEnET,1
+2024-1022,Hill,Dana,Female,College of Engineering,COE,Bachelor of Science in Environmental Engineering,BSEnET,2
+2024-1023,Adams,Sky,Male,College of Science and Mathematics,CSM,Bachelor of Science in Biology(BOTANY),BSBio-Bot,3
+2024-1024,Baker,Emery,Female,College of Science and Mathematics,CSM,Bachelor of Science in Biology(BOTANY),BSBio-Bot,4
+2024-1025,Adams,Charlie,Male,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,1
+2024-1026,Baker,Reese,Female,College of Science and Mathematics,CSM,Bachelor of Science in Chemistry,BSChem,2
+2024-1027,King,Jordan,Male,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,3
+2024-1028,Jones,Jordan,Female,College of Science and Mathematics,CSM,Bachelor of Science in Mathematics,BSMath,4
+2024-1029,Davis,Alex,Male,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,1
+2024-1030,Garcia,Taylor,Female,College of Science and Mathematics,CSM,Bachelor of Science in Physics,BSPhys,2
+2024-1031,Jones,Jordan,Male,College of Science and Mathematics,CSM,Bachelor of Science in Biology(ZOOLOGY),BSBio-Zoo,3
+2024-1032,Evans,Jordan,Female,College of Science and Mathematics,CSM,Bachelor of Science in Biology(ZOOLOGY),BSBio-Zoo,4
+2024-1033,Baker,Jordan,Male,College of Science and Mathematics,CSM,Bachelor of Science in Biology(Marine),BSBio-Mar,1
+2024-1034,Garcia,Charlie,Female,College of Science and Mathematics,CSM,Bachelor of Science in Biology(Marine),BSBio-Mar,2
+2024-1035,Evans,Dana,Male,College of Science and Mathematics,CSM,Bachelor of Science in Biology(General),BSBio-Gen,3
+2024-1036,Baker,Emery,Female,College of Science and Mathematics,CSM,Bachelor of Science in Biology(General),BSBio-Gen,4
+2024-1037,Adams,Taylor,Male,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,1
+2024-1038,Baker,Morgan,Female,College of Science and Mathematics,CSM,Bachelor of Science in Statistics,BSStat,2
+2024-1039,Baker,Reese,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,3
+2024-1040,Garcia,Charlie,Female,College of Computer Studies,CCS,Bachelor of Science in Computer Science,BSCS,4
+2024-1041,Garcia,Taylor,Male,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,1
+2024-1042,Evans,Reese,Female,College of Computer Studies,CCS,Bachelor of Science in Information Technology,BSIT,2
+2024-1043,Baker,Alex,Male,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,3
+2024-1044,Jones,Alex,Female,College of Computer Studies,CCS,Bachelor of Science in Information Systems,BSIS,4
+2024-1045,Baker,Casey,Male,College of Computer Studies,CCS,Bachelor of Science in Computer Application,BSCA,1
+2024-1046,Garcia,Reese,Female,College of Computer Studies,CCS,Bachelor of Science in Computer Application,BSCA,2
+2024-1047,Carter,Casey,Male,College of Education,CED,Bachelor of Elementary Education(Science and Mathematics),BEEd-SciMath,3
+2024-1048,Lee,Casey,Female,College of Education,CED,Bachelor of Elementary Education(Science and Mathematics),BEEd-SciMath,4
+2024-1049,Baker,Sky,Male,College of Education,CED,Bachelor of Elementary Education(Language Education),BEEd-Lang,1
+2024-1050,Jones,Taylor,Female,College of Education,CED,Bachelor of Elementary Education(Language Education),BEEd-Lang,2
+2024-1051,Lee,Casey,Male,College of Education,CED,Bachelor of Secondary Education(Biology),BSEd-Bio,3
+2024-1052,Lee,Jordan,Female,College of Education,CED,Bachelor of Secondary Education(Biology),BSEd-Bio,4
+2024-1053,Jones,Casey,Male,College of Education,CED,Bachelor of Secondary Education(Chemistry),BSEd-Chem,1
+2024-1054,Davis,Morgan,Female,College of Education,CED,Bachelor of Secondary Education(Chemistry),BSEd-Chem,2
+2024-1055,Jones,Charlie,Male,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,3
+2024-1056,Hill,Charlie,Female,College of Education,CED,Bachelor of Secondary Education(Physics),BSEd-Phys,4
+2024-1057,Jones,Casey,Male,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,1
+2024-1058,Hill,Emery,Female,College of Education,CED,Bachelor of Secondary Education(Mathematics),BSEd-Math,2
+2024-1059,Adams,Taylor,Male,College of Education,CED,Bachelor of Physical Education,BPEd,3
+2024-1060,Lee,Charlie,Female,College of Education,CED,Bachelor of Physical Education,BPEd,4
+2024-1061,Davis,Charlie,Male,College of Education,CED,Bachelor of Technology and Livelihood Education(Home Economics),BTLED-HE,1
+2024-1062,Lee,Taylor,Female,College of Education,CED,Bachelor of Technology and Livelihood Education(Home Economics),BTLED-HE,2
+2024-1063,Baker,Emery,Male,College of Education,CED,Bachelor of Technology and Livelihood Eduction(Industrial Arts),BTLed-IA,3
+2024-1064,Davis,Taylor,Female,College of Education,CED,Bachelor of Technology and Livelihood Eduction(Industrial Arts),BTLed-IA,4
+2024-1065,Davis,Dana,Male,College of Education,CED,Bachelor of Technical-Vocational Teacher Education(Drafting Technology),BTVTED-DT,1
+2024-1066,Hill,Reese,Female,College of Education,CED,Bachelor of Technical-Vocational Teacher Education(Drafting Technology),BTVTED-DT,2
+2024-1067,Evans,Alex,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in English Language Studies,BA-ELS,3
+2024-1068,Hill,Dana,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in English Language Studies,BA-ELS,4
+2024-1069,King,Taylor,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Literary and Cultural Studies,BA-LCS,1
+2024-1070,Evans,Morgan,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Literary and Cultural Studies,BA-LCS,2
+2024-1071,Carter,Taylor,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Filipino,BA-FIL,3
+2024-1072,Evans,Emery,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Filipino,BA-FIL,4
+2024-1073,Garcia,Sky,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Panitikan,BA-PAN,1
+2024-1074,Lee,Emery,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Panitikan,BA-PAN,2
+2024-1075,Evans,Jordan,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Political Science,BA-POLSCI,3
+2024-1076,Evans,Emery,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Political Science,BA-POLSCI,4
+2024-1077,Davis,Reese,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Psychology,BA-PSY,1
+2024-1078,Davis,Dana,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Psychology,BA-PSY,2
+2024-1079,Jones,Reese,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in Sociology,BA-SOC,3
+2024-1080,King,Alex,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in Sociology,BA-SOC,4
+2024-1081,Lee,Emery,Male,College of Arts and Social Sciences,CASS,Bachelor of Arts in History(International History Track),BA-HIS-IH,1
+2024-1082,Adams,Charlie,Female,College of Arts and Social Sciences,CASS,Bachelor of Arts in History(International History Track),BA-HIS-IH,2
+2024-1083,Jones,Charlie,Male,College of Arts and Social Sciences,CASS,Bachelor of Science in Philosophy,BS-PHIL-AE,3
+2024-1084,Jones,Jordan,Female,College of Arts and Social Sciences,CASS,Bachelor of Science in Philosophy,BS-PHIL-AE,4
+2024-1085,Evans,Taylor,Male,College of Arts and Social Sciences,CASS,Bachelor of Science in Psychology,BS-PSY,1
+2024-1086,Carter,Sky,Female,College of Arts and Social Sciences,CASS,Bachelor of Science in Psychology,BS-PSY,2
+2024-1087,Hill,Charlie,Male,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,3
+2024-1088,Evans,Alex,Female,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Accountancy,BS-ACC,4
+2024-1089,Lee,Dana,Male,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Business Administration(Business Economics),BSBA-BE,1
+2024-1090,Lee,Dana,Female,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Business Administration(Business Economics),BSBA-BE,2
+2024-1091,Jones,Emery,Male,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,3
+2024-1092,Baker,Jordan,Female,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Business Administration(Marketing Management),BSBA-MM,4
+2024-1093,Carter,Charlie,Male,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,1
+2024-1094,Lee,Dana,Female,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Entrepreneurship,BS-ENT,2
+2024-1095,Evans,Casey,Male,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Hospitality Management,BSHM,3
+2024-1096,Jones,Jordan,Female,College of Economics Business and Accountancy,CEBA,Bachelor of Science in Hospitality Management,BSHM,4
+2024-1097,Jones,Charlie,Male,College of Health Sciences,CHS,Bachelor of Science in Nursing,BSN,1
+2024-1098,Lee,Jordan,Female,College of Health Sciences,CHS,Bachelor of Science in Nursing,BSN,2
